@@ -233,15 +233,15 @@
     <div class="postShorten-header">
       <h1 class="postShorten-title">
       
-        <a class="link-unstyled" href="/2023/02/test/" aria-label="Open the post: test">
+        <a class="link-unstyled" href="/2023/02/intro/" aria-label="Open the post: Intro">
       
-          test
+          Intro
         </a>
       </h1>
       
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2023-02-10T11:21:34&#43;08:00">
+      <time datetime="2023-02-10T17:22:30&#43;08:00">
         
   February 10, 2023
 
@@ -253,12 +253,11 @@
     </div>
     <div class="postShorten-excerpt">
       
-        this is a test now here is some sorce code:
-#include &lt;bits/stdc++.h&gt; using namespace std; int c[105] = {0}, w[105] = {0}; int f(int i, int v) { if (i == 0 || v == 0) return 0; if (v &lt; c[i]) { return f(i - 1, v); } return max(f(i - 1, v), f(i - 1, v - c[i]) + w[i]); } int main() { int v, n; cin &gt;&gt; v &gt;&gt; n; for (int i = 1; i &lt;= n; ++i) { scanf(&#34;%d%d&#34;, &amp;c[i], &amp;w[i]); // NOLINT(cert-err34-c) } cout &lt;&lt; f(n, v) &lt;&lt; endl; return 0; } 
+        union-find set int T, N, M, id[1010], sz[1010], ans; int find(int x) { if (id[x] == x) return x; return id[x] = find(id[x]); } void join(int x, int y) { int p = find(x); int q = find(y); if (p != q) { id[p] = q; sz[q] += sz[p]; } } 
       
       <p>
         
-          <a href="/2023/02/test/" class="postShorten-excerpt_link link" aria-label="Open the post: test">Continue reading</a>
+          <a href="/2023/02/intro/" class="postShorten-excerpt_link link" aria-label="Open the post: Intro">Continue reading</a>
         
         
       </p>

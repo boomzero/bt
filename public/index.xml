@@ -6,15 +6,14 @@
     <description>Recent content on test</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Feb 2023 11:21:34 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Feb 2023 17:22:30 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>test</title>
-      <link>/2023/02/test/</link>
-      <pubDate>Fri, 10 Feb 2023 11:21:34 +0800</pubDate>
+      <title>Intro</title>
+      <link>/2023/02/intro/</link>
+      <pubDate>Fri, 10 Feb 2023 17:22:30 +0800</pubDate>
       
-      <guid>/2023/02/test/</guid>
-      <description>this is a test now here is some sorce code:
-#include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; int c[105] = {0}, w[105] = {0}; int f(int i, int v) { if (i == 0 || v == 0) return 0; if (v &amp;lt; c[i]) { return f(i - 1, v); } return max(f(i - 1, v), f(i - 1, v - c[i]) + w[i]); } int main() { int v, n; cin &amp;gt;&amp;gt; v &amp;gt;&amp;gt; n; for (int i = 1; i &amp;lt;= n; ++i) { scanf(&amp;#34;%d%d&amp;#34;, &amp;amp;c[i], &amp;amp;w[i]); // NOLINT(cert-err34-c) } cout &amp;lt;&amp;lt; f(n, v) &amp;lt;&amp;lt; endl; return 0; } </description>
+      <guid>/2023/02/intro/</guid>
+      <description>union-find set int T, N, M, id[1010], sz[1010], ans; int find(int x) { if (id[x] == x) return x; return id[x] = find(id[x]); } void join(int x, int y) { int p = find(x); int q = find(y); if (p != q) { id[p] = q; sz[q] += sz[p]; } } </description>
     </item>
     
   </channel>
