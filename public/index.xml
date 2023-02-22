@@ -6,11 +6,28 @@
     <description>Recent content on test</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Feb 2023 17:22:30 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Feb 2023 20:44:13 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[yLOI2023] 分解只因数</title>
+      <link>/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/</link>
+      <pubDate>Wed, 22 Feb 2023 20:44:13 +0800</pubDate>
+      
+      <guid>/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/</guid>
+      <description>[yLOI2023] 分解只因数 题目描述 给定一个正整数 $n$，对 $n$ 分解质因数。
+设 $n = p_1 \times p_2 \times p_3 \times \dots \times p_x$，其中 $p_i$ 均为质数。
+如果 $p_i$ 均为奇数，则称 $n$ 为『只因数』。
+现在，给出若干个 $n$，请你判断 $n$ 是不是『只因数』。
+输入格式 本题单测试点内有多组测试数据。
+第一行是一个整数，表示数据组数 $T$。
+接下来 $T$ 行，每行一个整数，表示一组数据的 $n$。
+输出格式 对每组数据，输出一行一个字符串。如果 $n$ 是『只因数』，请输出 Yes，否则输出 No。
+样例 #1 样例输入 #1 5 2 3 4 6 9 样例输出 #1 No Yes No No Yes 提示 数据规模与约定 本题共有 $10$ 个测试点。对第 $i$ 个测试点，$T = \max(1, i - 1)$。</description>
+    </item>
+    
     <item>
       <title>Intro</title>
       <link>/2023/02/intro/</link>
-      <pubDate>Fri, 10 Feb 2023 17:22:30 +0800</pubDate>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>/2023/02/intro/</guid>
       <description>union-find set int T, N, M, id[1010], sz[1010], ans; int find(int x) { if (id[x] == x) return x; return id[x] = find(id[x]); } void join(int x, int y) { int p = find(x); int q = find(y); if (p != q) { id[p] = q; sz[q] += sz[p]; } } </description>
