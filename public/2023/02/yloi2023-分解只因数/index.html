@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[yLOI2023] 分解只因数",
+  
+  "image": "//d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg",
+  
+  "datePublished": "2023-02-22T20:44:13+08:00",
+  "dateModified": "2023-02-22T20:44:13+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "zcr",
+    
+    "image": "https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "\/2023\/02\/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "test",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c"
+    }
+    
+  },
+  "description": "[yLOI2023] 分解只因数 题目描述 给定一个正整数 $n$，对 $n$ 分解质因数。\n设 $n = p_1 \\times p_2 \\times p_3 \\times \\dots \\times p_x$，其中 $p_i$ 均为质数。\n如果 $p_i$ 均为奇数，则称 $n$ 为『只因数』。\n现在，给出若干个 $n$，请你判断 $n$ 是不是『只因数』。\n输入格式 本题单测试点内有多组测试数据。\n第一行是一个整数，表示数据组数 $T$。\n接下来 $T$ 行，每行一个整数，表示一组数据的 $n$。\n输出格式 对每组数据，输出一行一个字符串。如果 $n$ 是『只因数』，请输出 Yes，否则输出 No。\n样例 #1 样例输入 #1 5 2 3 4 6 9 样例输出 #1 No Yes No No Yes 提示 数据规模与约定 本题共有 $10$ 个测试点。对第 $i$ 个测试点，$T = \\max(1, i - 1)$。",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.110.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="zcr">
+<meta name="keywords" content="">
+<meta name="description" content="[yLOI2023] 分解只因数 题目描述 给定一个正整数 $n$，对 $n$ 分解质因数。
+设 $n = p_1 \times p_2 \times p_3 \times \dots \times p_x$，其中 $p_i$ 均为质数。
+如果 $p_i$ 均为奇数，则称 $n$ 为『只因数』。
+现在，给出若干个 $n$，请你判断 $n$ 是不是『只因数』。
+输入格式 本题单测试点内有多组测试数据。
+第一行是一个整数，表示数据组数 $T$。
+接下来 $T$ 行，每行一个整数，表示一组数据的 $n$。
+输出格式 对每组数据，输出一行一个字符串。如果 $n$ 是『只因数』，请输出 Yes，否则输出 No。
+样例 #1 样例输入 #1 5 2 3 4 6 9 样例输出 #1 No Yes No No Yes 提示 数据规模与约定 本题共有 $10$ 个测试点。对第 $i$ 个测试点，$T = \max(1, i - 1)$。">
+
+
+<meta property="og:description" content="[yLOI2023] 分解只因数 题目描述 给定一个正整数 $n$，对 $n$ 分解质因数。
+设 $n = p_1 \times p_2 \times p_3 \times \dots \times p_x$，其中 $p_i$ 均为质数。
+如果 $p_i$ 均为奇数，则称 $n$ 为『只因数』。
+现在，给出若干个 $n$，请你判断 $n$ 是不是『只因数』。
+输入格式 本题单测试点内有多组测试数据。
+第一行是一个整数，表示数据组数 $T$。
+接下来 $T$ 行，每行一个整数，表示一组数据的 $n$。
+输出格式 对每组数据，输出一行一个字符串。如果 $n$ 是『只因数』，请输出 Yes，否则输出 No。
+样例 #1 样例输入 #1 5 2 3 4 6 9 样例输出 #1 No Yes No No Yes 提示 数据规模与约定 本题共有 $10$ 个测试点。对第 $i$ 个测试点，$T = \max(1, i - 1)$。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[yLOI2023] 分解只因数">
+<meta name="twitter:title" content="[yLOI2023] 分解只因数">
+<meta property="og:url" content="/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/">
+<meta property="twitter:url" content="/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/">
+<meta property="og:site_name" content="test">
+<meta property="og:description" content="[yLOI2023] 分解只因数 题目描述 给定一个正整数 $n$，对 $n$ 分解质因数。
+设 $n = p_1 \times p_2 \times p_3 \times \dots \times p_x$，其中 $p_i$ 均为质数。
+如果 $p_i$ 均为奇数，则称 $n$ 为『只因数』。
+现在，给出若干个 $n$，请你判断 $n$ 是不是『只因数』。
+输入格式 本题单测试点内有多组测试数据。
+第一行是一个整数，表示数据组数 $T$。
+接下来 $T$ 行，每行一个整数，表示一组数据的 $n$。
+输出格式 对每组数据，输出一行一个字符串。如果 $n$ 是『只因数』，请输出 Yes，否则输出 No。
+样例 #1 样例输入 #1 5 2 3 4 6 9 样例输出 #1 No Yes No No Yes 提示 数据规模与约定 本题共有 $10$ 个测试点。对第 $i$ 个测试点，$T = \max(1, i - 1)$。">
+<meta name="twitter:description" content="[yLOI2023] 分解只因数 题目描述 给定一个正整数 $n$，对 $n$ 分解质因数。
+设 $n = p_1 \times p_2 \times p_3 \times \dots \times p_x$，其中 $p_i$ 均为质数。
+如果 $p_i$ 均为奇数，则称 $n$ 为『只因数』。
+现在，给出若干个 $n$，请你判断 $n$ 是不是『只因数』。
+输入格式 本题单测试点内有多组测试数据。
+第一行是一个整数，表示数据组数 $T$。
+接下来 $T$ 行，每行一个整数，表示一组数据的 $n$。
+输出格式 对每组数据，输出一行一个字符串。如果 $n$ 是『只因数』，请输出 Yes，否则输出 No。
+样例 #1 样例输入 #1 5 2 3 4 6 9 样例输出 #1 No Yes No No Yes 提示 数据规模与约定 本题共有 $10$ 个测试点。对第 $i$ 个测试点，$T = \max(1, i - 1)$。">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2023-02-22T20:44:13">
+  
+  
+    <meta property="article:modified_time" content="2023-02-22T20:44:13">
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+
+
+
+
+
+  <meta property="og:image" content="//d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg">
+  <meta property="twitter:image" content="//d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg">
+
+
+    <title>[yLOI2023] 分解只因数</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/" aria-label="Go to homepage">test</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">zcr</h4>
+        
+          <h5 class="sidebar-profile-bio">None</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/thomas311926" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      [yLOI2023] 分解只因数
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-02-22T20:44:13&#43;08:00">
+        
+  February 22, 2023
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <h1 id="yloi2023-分解只因数">[yLOI2023] 分解只因数</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定一个正整数 $n$，对 $n$ 分解质因数。</p>
+<p>设 $n = p_1 \times p_2 \times p_3 \times \dots \times p_x$，其中 $p_i$ 均为质数。</p>
+<p>如果 $p_i$ 均为奇数，则称 $n$ 为『只因数』。</p>
+<p>现在，给出若干个 $n$，请你判断 $n$ 是不是『只因数』。</p>
+<h2 id="输入格式">输入格式</h2>
+<p><strong>本题单测试点内有多组测试数据</strong>。</p>
+<p>第一行是一个整数，表示数据组数 $T$。</p>
+<p>接下来 $T$ 行，每行一个整数，表示一组数据的 $n$。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>对每组数据，输出一行一个字符串。如果 $n$ 是『只因数』，请输出 <code>Yes</code>，否则输出 <code>No</code>。</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<pre tabindex="0"><code>5
+2
+3
+4
+6
+9
+</code></pre><h3 id="样例输出-1">样例输出 #1</h3>
+<pre tabindex="0"><code>No
+Yes
+No
+No
+Yes
+</code></pre><h2 id="提示">提示</h2>
+<h3 id="数据规模与约定">数据规模与约定</h3>
+<p>本题共有 $10$ 个测试点。对第 $i$ 个测试点，$T = \max(1, i - 1)$。</p>
+<ul>
+<li>对 $30%$ 的数据，$n \leq 3$。</li>
+<li>对 $50%$ 的数据，$n \leq 10$。</li>
+<li>另有 $10%$ 的数据，$n$ 为奇数。</li>
+<li>另有 $10%$ 的数据，$n$ 为偶数。</li>
+<li>对 $90%$ 的数据，$n \leq 10^9$。</li>
+<li>对 $100%$ 的数据，$1 \leq T \leq 9$，$2 \leq n \leq 10^{18}$。</li>
+</ul>
+<h3 id="说明">说明</h3>
+<p>本题共有两个附加样例文件，见题目附件中的 <code>ibvl.zip</code>。</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2023/02/intro/" data-tooltip="Intro" aria-label="PREVIOUS: Intro">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2023 zcr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="/2023/02/intro/" data-tooltip="Intro" aria-label="PREVIOUS: Intro">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=/2023/02/yloi2023-%E5%88%86%E8%A7%A3%E5%8F%AA%E5%9B%A0%E6%95%B0/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2023%2F02%2Fyloi2023-%25E5%2588%2586%25E8%25A7%25A3%25E5%258F%25AA%25E5%259B%25A0%25E6%2595%25B0%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2023%2F02%2Fyloi2023-%25E5%2588%2586%25E8%25A7%25A3%25E5%258F%25AA%25E5%259B%25A0%25E6%2595%25B0%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=%2F2023%2F02%2Fyloi2023-%25E5%2588%2586%25E8%25A7%25A3%25E5%258F%25AA%25E5%259B%25A0%25E6%2595%25B0%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">zcr</h4>
+    
+      <div id="about-card-bio">None</div>
+    
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        here
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
